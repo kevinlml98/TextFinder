@@ -1,0 +1,39 @@
+#HBOXmenu{
+    -fx-border-color: rgb(0,150,201);
+}
+
+#VBOXpanel{
+    -fx-background-color: white;
+    -fx-border-color: rgb(0,150,201);
+}
+
+#VBOXresults{
+    -fx-background-color: white;
+    -fx-border-color: rgb(0,150,201);
+}
+
+#btnopt{
+    -fx-background-image: url("img/opt.png");
+}
+:hover#btnopt{
+    -fx-background-image: url("img/optp.png");
+    -fx-effect: none;
+}
+
+#btnordenar{
+    -fx-background-color: white;
+}
+
+
+#btntype{
+    -fx-background-color: white;
+}
+
+
+#btnsearch{
+    -fx-background-image: url("img/srch.png");
+}
+:hover#btnsearch{
+    -fx-background-image: url("img/srchp.png");
+    -fx-effect: none;
+}
