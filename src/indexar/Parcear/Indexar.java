@@ -22,13 +22,12 @@ public class Indexar {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/textfinder/panellateral/Library.txt"));
             String line ;
-            System.out.println("ArchivoAbierto");
 
             while ((line = reader.readLine()) != null) {
                 Parsear(line);
             }
-
             reader.close();
+            System.out.println("Indexación finalizada");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,16 +43,16 @@ public class Indexar {
             while ((oracion = reader.readLine()) != null) {
                 String[] linea = oracion.split("\\s+");
                 for (int i = 0; i < linea.length; i++) {
-                    System.out.println("Palabra añadida: " + linea[i]);
+                    //System.out.println("Palabra añadida: " + linea[i]);
                 }
 
             }
-
-
-
+            System.out.println(line + " Indexado exitosamente");
+            reader.close();
 
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println("Error al indexar: " + line);
+           // e.printStackTrace();
         }
 
 

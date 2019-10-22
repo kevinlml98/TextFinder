@@ -30,9 +30,10 @@ public class PanelLateral {
     public void writeInLibrary(String archivo){
         try {
             FileWriter writer = new FileWriter("src/textfinder/panellateral/Library.txt", true);
-            writer.write(archivo);
+            String a = archivo.replace("\\","/");
+            writer.write(a);
             writer.append("\r\n");   // write new line
-            System.out.println("Documento agregado: " + archivo);
+            System.out.println("Documento agregado: " + a);
             writer.close();
         } catch (IOException e) {
             System.out.println("No se guardó el documento en la libreria");

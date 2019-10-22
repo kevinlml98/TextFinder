@@ -56,6 +56,7 @@ public class OptionMenu {
             panelLateral.addNodo(file); //_____________ Añade el nombre de la libreria al boton
 
 
+
             //________ Añadir el documento a la libreria ______//
             int StringLength = description.length();
             String substring = description.substring(StringLength - 3 , StringLength);
