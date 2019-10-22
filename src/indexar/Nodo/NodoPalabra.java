@@ -1,7 +1,5 @@
 package indexar.Nodo;
 
-import java.io.File;
-
 public class NodoPalabra {
 
     //_______ Atributos
@@ -25,7 +23,7 @@ public class NodoPalabra {
 
 
     //____________ Añadir Palabra
-    public void addWord(String palabra, File file){
+    public void addWord(String palabra, String libro){
 
         int i = this.palabra.compareTo(palabra); // ______ Compara la palabra del nodo con palabras
 
@@ -33,32 +31,31 @@ public class NodoPalabra {
             if (nodoLeft == null){
                 NodoPalabra n = new NodoPalabra(palabra);
                 nodoLeft = n;
-                nodoLeft.addWord(palabra,file);
+                nodoLeft.addWord(palabra,libro);
             }else{
-                nodoLeft.addWord(palabra,file);
+                nodoLeft.addWord(palabra,libro);
             }
 
         }else if(i < 0){
             if (nodoRight == null){
                 NodoPalabra n = new NodoPalabra(palabra);
                 nodoRight = n;
-                nodoRight.addWord(palabra,file);
+                nodoRight.addWord(palabra,libro);
             }else{
-                nodoRight.addWord(palabra,file);
+                nodoRight.addWord(palabra,libro);
             }
         }else {
-            addBook(file);
+            addBook(libro);
         }
     }
 
     //__________________ Añadir libro al nodo
-    private void addBook(File file){
-        String archivo = file.toString() + ",";
-        if(!library.contains(archivo)) {
-            this.library += archivo;
-            System.out.println("Libreria añadida al nodo");
+    private void addBook(String libro){
+        if(!library.contains(libro)) {
+            this.library += libro + ",";
+            System.out.println("Libreria añadida al nodo " + this.library);
         }else{
-            System.out.println("La liberia ya está añadida al nodo");
+            System.out.println("La liberia: " + this.library + " ; ya está añadida al nodo");
         }
 
     }

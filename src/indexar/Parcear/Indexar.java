@@ -1,5 +1,7 @@
 package indexar.Parcear;
 
+import indexar.Nodo.NodoPalabra;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,6 +9,7 @@ import java.io.IOException;
 public class Indexar {
 
     //______________ Atributos e inicialización
+    NodoPalabra nodo = new NodoPalabra();
 
 
 
@@ -43,7 +46,7 @@ public class Indexar {
             while ((oracion = reader.readLine()) != null) {
                 String[] linea = oracion.split("\\s+");
                 for (int i = 0; i < linea.length; i++) {
-                    //System.out.println("Palabra añadida: " + linea[i]);
+                    nodo.addWord(linea[i],line);
                 }
 
             }
