@@ -22,6 +22,7 @@ public class Indexar {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/textfinder/panellateral/Library.txt"));
             String line ;
+            System.out.println("ArchivoAbierto");
 
             while ((line = reader.readLine()) != null) {
                 Parsear(line);
