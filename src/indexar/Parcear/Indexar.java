@@ -9,13 +9,16 @@ import java.io.IOException;
 public class Indexar {
 
     //______________ Atributos e inicialización
-    NodoPalabra nodo = new NodoPalabra();
+    private NodoPalabra nodo = new NodoPalabra();
 
 
 
     //______________ Método constructor
     public Indexar(){
     }
+
+    //________________ Añadir elementos mutos
+
 
 
 
@@ -62,5 +65,9 @@ public class Indexar {
     }
 
 
+    //_________________________ Getters and Setters
 
+    public NodoPalabra getNodo() {
+        return nodo;
+    }
 }

@@ -40,13 +40,16 @@ public class VisorDocument {
 
 
     //_____________ Graphic Square Visor _________//
-    private void GraphicVisor (){
+    public void GraphicVisor (String archivo, String nombre){
+
+        //___________________ Ejecutar la lectura de la libreria
+        readInLibrary(archivo);
 
         //______ Stage _____//
         Stage stage = new Stage();
 
         //_______ Label ______ //
-        Label label = new Label("Título");
+        Label label = new Label(nombre);
         label.setStyle("-fx-font-size: 20;");
 
 

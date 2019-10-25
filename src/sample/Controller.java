@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import textfinder.menu.OptionMenu;
+import textfinder.menu.SearchStrig;
 import textfinder.panellateral.PanelLateral;
 
 import java.net.URL;
@@ -22,6 +23,7 @@ public class Controller implements Initializable {
     //____________________________________________  Implementaciones
     OptionMenu fileSettings = new OptionMenu();
     PanelLateral panelLateral = new PanelLateral();
+    SearchStrig searchString = new SearchStrig();
 
 
     //_____________________________________________ Atributos
@@ -33,16 +35,19 @@ public class Controller implements Initializable {
     private MenuItem optWord;
 
     @FXML
+    private MenuItem optText;
+
+    @FXML
     private MenuItem optName;
+
+    @FXML
+    private MenuItem optSize;
 
     @FXML
     private Button btnopt;
 
     @FXML
     private Button btnsearch;
-
-    @FXML
-    private MenuItem optSize;
 
     @FXML
     private HBox HBOXmenu;
@@ -65,8 +70,7 @@ public class Controller implements Initializable {
     @FXML
     private BorderPane BPcontainer;
 
-    @FXML
-    private MenuItem optText;
+
 
 
 
@@ -77,12 +81,27 @@ public class Controller implements Initializable {
 
     }
 
+    //_______________________________________________________ Boton que abre el menu de obciones
+    @FXML
+    void searchText(MouseEvent event) {
+        String search = textSearch.getText();
+        if (search != null){
+            searchString.searchWord(search);
+            textSearch.clear();
+        }else{
+            System.out.println("No se ha ingresado texto");
+        }
+
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Bienvenido a TextFinder");
         panelLateral.addMutualElements(VBOXpanel);
         fileSettings.addMutualElements(panelLateral);
+        searchString.addMutualElements(fileSettings,VBOXresults);
+        panelLateral.refreshPanel();
 
 
     }

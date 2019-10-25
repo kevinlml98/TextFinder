@@ -10,7 +10,7 @@ public class PanelLateral {
     //________________________ Implementaciones
     VBox vBoxGraphicPane = new VBox();
     ScrollBar sc = new ScrollBar();
-    private nodo firstNode;
+    public nodo firstNode;
 
 
 
@@ -42,19 +42,6 @@ public class PanelLateral {
     }
 
 
-    //_______________________ Leer el archivo library.txt
-    public void readInLibrary (){
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("Library.txt"));
-            reader.readLine();
-            reader.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     //_________________________ Añadir nodo
     public void addNodo(File file){
         if(firstNode == null){
@@ -68,6 +55,27 @@ public class PanelLateral {
             vBoxGraphicPane.getChildren().add(firstNode.button);
         }
     }
+
+    public void refreshPanel (){
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src/textfinder/panellateral/Library.txt"));
+            String line ;
+
+            while ((line = reader.readLine()) != null) {
+                if(line.contains("C")){
+                    File file = new File(line);
+                    addNodo(file);
+                }
+            }
+            reader.close();
+            System.out.println("Panel lateral actualizado");
+        } catch (IOException e) {
+            System.out.println("Panel lateral no actualizado");
+            //e.printStackTrace();
+        }
+    }
+
+
 
     //___________________________ Añadir palabra al diccionario
 

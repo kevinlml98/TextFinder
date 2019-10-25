@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import textfinder.showResults.VisorDocument;
 
 import java.io.File;
 
@@ -20,13 +21,19 @@ public class nodo {
 
     //______________________ Método constuctor
 
+    public nodo(){
+
+    }
+
     public nodo(File file) {
         String description = file.toString();
         int StringLength = description.length();
+        int name = file.getName().length();
+        String subname = file.getName().substring(0,name - 4);
         String substring = description.substring(StringLength - 3 , StringLength);
 
         documentType = substring; //_____ Se defne el tipo de archivo
-        documentName = file.getName();
+        documentName = subname;
         documentURL = file.toString();
         makeButton();
     }
@@ -47,7 +54,8 @@ public class nodo {
         //____________ Acción al clickear
         button.setOnAction(
                 (event) -> {
-                    System.out.println("Boton de panel lateral precionado");
+                    VisorDocument visor = new VisorDocument();
+                    visor.GraphicVisor(documentURL,documentName);
                 }
         );
 
@@ -58,6 +66,5 @@ public class nodo {
 
 
     //___________________ Getters and Setters
-
 
 }

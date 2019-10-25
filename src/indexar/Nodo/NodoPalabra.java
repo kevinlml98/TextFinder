@@ -53,9 +53,9 @@ public class NodoPalabra {
     private void addBook(String libro){
         if(!library.contains(libro)) {
             this.library += libro + ",";
-            System.out.println("Libreria añadida al nodo " + this.library);
+            System.out.println("Libreria " + this.library + " añadida al nodo " + this.palabra);
         }else{
-            System.out.println("La liberia: " + this.library + " ; ya está añadida al nodo");
+            System.out.println("La liberia: " + this.library + " ; ya está añadida al nodo " + this.palabra);
         }
 
     }
@@ -77,9 +77,16 @@ public class NodoPalabra {
         return titulo + " no encontrado";
     }
 
+    //______________________ Getters and Setters
+    public String getLibrary() {
+        return library;
+    }
 
+    public NodoPalabra getNodoLeft() {
+        return nodoLeft;
+    }
 
-
-
-
+    public NodoPalabra getNodoRight() {
+        return nodoRight;
+    }
 }
